@@ -1,0 +1,67 @@
+.product-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-top: 50px;
+  gap: 30px;
+
+  .img-wrapper {
+    align-self: center;
+    justify-self: center;
+    height: 400px;
+    width: 100%;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+
+    h1 {
+      text-align: center;
+    }
+
+    span {
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    *::before {
+      position: relative;
+      left: -10px;
+    }
+
+    .location::before {
+      display: inline-block;
+      content: url(/building-svgrepo-com.svg);
+      width: 25px;
+      height: 25px;
+    }
+
+    .time::before {
+      display: inline-block;
+      content: url(/clock-svgrepo-com.svg);
+      width: 25px;
+      height: 25px;
+      left: -7px;
+      top: 4px;
+    }
+
+    .price::before {
+      display: inline-block;
+      content: url(/price-tag-dolar-svgrepo-com.svg);
+      width: 25px;
+      height: 25px;
+      left: -5px;
+      top: 5px;
+    }
+  }
+}
