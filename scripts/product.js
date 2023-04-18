@@ -32,7 +32,7 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
         .then((data) => {
 
 
-          window.location.href = `/`
+          window.location.href = `index.html`
 
 
         }
