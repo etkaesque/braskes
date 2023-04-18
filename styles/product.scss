@@ -1,7 +1,7 @@
 .product-information {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 1fr;
   margin-top: 50px;
   gap: 30px;
 
@@ -10,11 +10,40 @@
     justify-self: center;
     height: 400px;
     width: 100%;
+    position: relative;
 
     img {
       object-fit: cover;
       width: 100%;
       height: 100%;
+    }
+
+    .delete {
+      z-index: 1;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: white;
+      border-radius: 50px;
+      font-family: "Jost", sans-serif;
+      font-weight: 400;
+      width: 50px;
+      height: 50px;
+      padding: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      background-image: url(../delete.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-size: 80%;
+      background-position: 50%;
+
+      transition: transform 0.5s ease-out;
+
+      &:hover {
+        transform: rotate(45deg);
+      }
     }
   }
 
@@ -22,8 +51,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-
 
     h1 {
       text-align: center;
@@ -41,14 +68,14 @@
 
     .location::before {
       display: inline-block;
-      content: url(/building-svgrepo-com.svg);
+      content: url(../building-svgrepo-com.svg);
       width: 25px;
       height: 25px;
     }
 
     .time::before {
       display: inline-block;
-      content: url(/clock-svgrepo-com.svg);
+      content: url(../clock-svgrepo-com.svg);
       width: 25px;
       height: 25px;
       left: -7px;
@@ -57,11 +84,51 @@
 
     .price::before {
       display: inline-block;
-      content: url(/price-tag-dolar-svgrepo-com.svg);
+      content: url(../price-tag-dolar-svgrepo-com.svg);
       width: 25px;
       height: 25px;
       left: -5px;
       top: 5px;
+    }
+  }
+}
+
+.success {
+  
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: #eb166e;
+  padding: 60px;
+  border-radius: 10px 50px;
+
+  h3 {
+    color: white;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  button {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    background-color: white;
+    padding: 10px 20px;
+    border: 2px solid;
+    border-radius: 5px 10px;
+    cursor: pointer;
+    color: #eb166e;
+    font-size: 1rem;
+
+    &:hover {
+      color: #5db67d;
+      border: 2px solid white;
+      border-radius: 5px 10px;
     }
   }
 }

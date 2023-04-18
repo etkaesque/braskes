@@ -29,10 +29,9 @@ header .logo svg {
   width: 70px;
   height: 70px;
 }
-header .logo .logo-banner {
-  font-family: "Karma", serif;
-  position: absolute;
-  font-size: 0.75rem;
+header .logo span a {
+  text-decoration: none;
+  color: #000000;
 }
 header ul {
   list-style-type: none;
@@ -57,6 +56,9 @@ header ul li:nth-child(2) {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+main {
+  min-height: 80vh;
+}
 main .search .search-container {
   width: 100%;
   background-color: #eb166e;
@@ -64,8 +66,8 @@ main .search .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   -moz-column-gap: 10px;
        column-gap: 10px;
   border-radius: 5px 5px 20px 20px;
@@ -213,6 +215,8 @@ main .content .card .card-info-aside {
 }
 main .content .card .card-info-aside .time {
   font-style: italic;
+  text-align: end;
+  font-size: 0.8rem;
 }
 
 footer {

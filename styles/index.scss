@@ -31,11 +31,11 @@ header {
       height: 70px;
     }
 
-    .logo-banner {
-      font-family: "Karma", serif;
-      position: absolute;
-      font-size: 0.75rem;
+    span a {
+      text-decoration: none;
+      color: #000000;
     }
+
   }
 
   ul {
@@ -66,6 +66,9 @@ header {
 }
 
 main {
+
+  min-height: 80vh;
+
   .search {
     .search-container {
       width: 100%;
@@ -74,8 +77,8 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
       column-gap: 10px;
       border-radius: 5px 5px 20px 20px;
 
@@ -248,6 +251,8 @@ main {
 
         .time {
           font-style: italic;
+          text-align: end;
+          font-size: 0.8rem;
         }
 
       }

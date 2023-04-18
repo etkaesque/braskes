@@ -1,0 +1,85 @@
+.form-wrapper {
+  text-align: center;
+  position: relative;
+}
+.form-wrapper .success {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: #eb166e;
+  padding: 60px;
+  border-radius: 10px 50px;
+}
+.form-wrapper .success h3 {
+  color: white;
+}
+.form-wrapper .success a {
+  text-decoration: none;
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  background-color: white;
+  padding: 10px 20px;
+  border: 2px;
+  border-radius: 5px 10px;
+  cursor: pointer;
+  color: #eb166e;
+  font-size: 1rem;
+}
+.form-wrapper .success a:hover {
+  color: #5db67d;
+  border: 2px solid white;
+  border-radius: 5px 10px;
+}
+.form-wrapper .success button {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  background-color: white;
+  padding: 10px 20px;
+  border: 2px solid;
+  border-radius: 5px 10px;
+  cursor: pointer;
+  color: #eb166e;
+  font-size: 1rem;
+}
+.form-wrapper .success button:hover {
+  color: #5db67d;
+  border: 2px solid white;
+  border-radius: 5px 10px;
+}
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+.form-wrapper form button {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  background-color: #eb166e;
+  padding: 10px 20px;
+  border: 2px solid #eb166e;
+  border-radius: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  color: white;
+}
+.form-wrapper form button:hover {
+  background-color: transparent;
+  color: #eb166e;
+}
+.form-wrapper form div {
+  display: flex;
+  flex-direction: column;
+}
+.form-wrapper form div select, .form-wrapper form div input {
+  height: 35px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.form-wrapper form div textarea:focus, .form-wrapper form div select:focus, .form-wrapper form div input:focus {
+  outline-color: #eb166e;
+}/*# sourceMappingURL=add.css.map */

@@ -1,5 +1,6 @@
 const id = localStorage.getItem("id");
 const container = document.querySelector(".product-information");
+const success = document.querySelector(`.success`);
 
 fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
   .then((res) => {
@@ -8,6 +9,39 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
   .then((data) => {
     console.log(data);
     productInit(data);
+
+    const deleteButton = document.querySelector(`.delete`);
+    const continueYes = document.querySelector(`.continueYes`);
+    const continueNo = document.querySelector(`.continueNo`);
+
+    deleteButton.addEventListener("click", () => {
+      success.style.display = `block`;
+    });
+
+    continueNo.addEventListener("click", () => {
+      success.style.display = `none`;
+    });
+
+    continueYes.addEventListener("click", () => {
+      fetch(`https://643d8cc16c30feced815307f.mockapi.io/strawberries/`+`${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+
+
+          window.location.href = `/`
+
+
+        }
+        
+        
+        
+        )
+ 
+    });
   });
 
 function productInit(product) {
@@ -38,6 +72,9 @@ function productInit(product) {
         
         <img src="${product.image}" alt="${product.name}">
         
+        <button class="delete"></button>
+      
+        
     </div>
 
     <div class="product-info">
@@ -46,6 +83,7 @@ function productInit(product) {
             <span class="location">${product.location}</span>
             <span class="time">Įkelta ${year} m. ${monthWord} ${day} d.</span>
             <span class="price">${product.price} €/kg</span>
+
     
 
     </div>
