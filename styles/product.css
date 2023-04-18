@@ -35,13 +35,13 @@
 }
 .product-information .product-info .location::before {
   display: inline-block;
-  content: url(/building-svgrepo-com.svg);
+  content: url(./building-svgrepo-com.svg);
   width: 25px;
   height: 25px;
 }
 .product-information .product-info .time::before {
   display: inline-block;
-  content: url(/clock-svgrepo-com.svg);
+  content: url(./clock-svgrepo-com.svg);
   width: 25px;
   height: 25px;
   left: -7px;
@@ -49,7 +49,7 @@
 }
 .product-information .product-info .price::before {
   display: inline-block;
-  content: url(/price-tag-dolar-svgrepo-com.svg);
+  content: url(./price-tag-dolar-svgrepo-com.svg);
   width: 25px;
   height: 25px;
   left: -5px;
