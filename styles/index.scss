@@ -31,6 +31,12 @@ header {
     align-items: flex-end;
   }
 
+ 
+
+
+
+
+
   .logo {
     font-family: "Pacifico", cursive;
     font-size: 1.5rem;
@@ -38,7 +44,10 @@ header {
     display: flex;
     align-items: baseline;
 
+    
+
     @media (max-width: 576px) {
+     
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -180,7 +189,8 @@ main {
             padding-left: 5px;
             padding-right: 5px;
           }
-          s button {
+
+          button {
             background-color: transparent;
             border: none;
             cursor: pointer;
@@ -191,7 +201,9 @@ main {
             transition: box-shadow 0.5s;
 
             &:hover {
+
               box-shadow: 2px 2px 15px #5db67d;
+
             }
 
             svg {
@@ -365,9 +377,15 @@ footer {
       list-style-type: none;
       column-gap: 20px;
 
-      @media (max-width: 992px) {
+      @media (max-width: 992px){
+
         flex-direction: column;
+    
       }
+    
+    
+
+
 
       li a {
         text-decoration: none;
