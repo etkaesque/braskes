@@ -2,6 +2,19 @@ let id = localStorage.getItem("id");
 let form = document.querySelector(".form");
 let success = document.querySelector(`.success`);
 const buttonContinue = document.querySelector(`.continue`);
+const searchItemForm = document.querySelector(".seach-item");
+
+searchItemForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const searchText = event.target.search.value;
+  const searchCity = event.target.cities.value;
+
+  localStorage.setItem("searchText", searchText);
+  localStorage.setItem("searchCity", searchCity);
+
+  window.location.href = `index.html`;
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();

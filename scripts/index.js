@@ -4,7 +4,7 @@ const message = document.querySelector(".message");
 const filterElement = document.querySelector("#filter");
 
 function applyFilter(data) {
-  console.log(data);
+
   let sortedData;
 
   if (filterElement.value === "cheapest") {
@@ -17,10 +17,35 @@ function applyFilter(data) {
     sortedData = sortOldtoNew(data);
   }
 
+
   init(sortedData);
 }
 
+function search(data, searchText, searchCity) {
+  message.textContent = "";
+  let searchedArray = [];
+  if (searchCity === "All") {
+    data.forEach((obj) => {
+      if (obj.name.includes(searchText)) {
+        searchedArray.push(obj);
+      }
+    });
+  } else {
+    data.forEach((obj) => {
+      if (obj.name.includes(searchText) && obj.location.includes(searchCity)) {
+        searchedArray.push(obj);
+      }
+    });
+  }
 
+  if (searchedArray.length === 0) {
+    message.textContent = "Pagal pateiktą užklausą rezultatų neradome.";
+  }
+
+  applyFilter(searchedArray);
+
+  filterElement.addEventListener("change", () => applyFilter(searchedArray));
+}
 
 searchItemForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -30,42 +55,10 @@ searchItemForm.addEventListener("submit", (event) => {
       return res.json();
     })
     .then((data) => {
-      message.textContent = "";
       const searchText = event.target.search.value;
       const searchCity = event.target.cities.value;
-      console.log("searches for item:" + searchText);
-      console.log("searches for city:" + searchCity);
 
-      let searchedArray = [];
-
-      if (searchCity === "All") {
-        data.forEach((obj) => {
-          if (obj.name.includes(searchText)) {
-            searchedArray.push(obj);
-          }
-        });
-      } else {
-        data.forEach((obj) => {
-          if (
-            obj.name.includes(searchText) &&
-            obj.location.includes(searchCity)
-          ) {
-            searchedArray.push(obj);
-          }
-        });
-      }
-
-      console.log("rasta tiek dalyku", searchedArray.length);
-
-      if (searchedArray.length === 0) {
-        message.textContent = "Pagal pateiktą užklausą rezultatų neradome.";
-      }
-
-      applyFilter(searchedArray);
-
-      filterElement.addEventListener("change", () =>
-        applyFilter(searchedArray)
-      );
+      search(data, searchText, searchCity);
     });
 });
 
@@ -74,13 +67,28 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries")
     return res.json();
   })
   .then((data) => {
-    applyFilter(data);
 
-    filterElement.addEventListener("change", () => applyFilter(data));
+
+    const searchText = localStorage.getItem("searchText");
+    const searchCity = localStorage.getItem("searchCity");
+
+   
+
+    if (searchText && searchCity) {
+      search(data, searchText, searchCity);
+
+    
+    } else {
+      applyFilter(data);
+      filterElement.addEventListener("change", () => applyFilter(data));
+    }
+
+  
   });
 
+////
+
 function init(array) {
- 
   content.innerHTML = "";
   array.forEach((arrayObj) => {
     const timePassed = time(arrayObj.date);
@@ -118,6 +126,10 @@ function init(array) {
     
     
     `;
+
+    localStorage.removeItem("searchText");
+    localStorage.removeItem("searchCity");
+
 
     card.addEventListener("click", () =>
       localStorage.setItem("id", `${arrayObj.id}`)
