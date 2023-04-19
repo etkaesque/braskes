@@ -402,6 +402,11 @@ footer {
     grid-column: 1/3;
     justify-self: end;
     font-family: "Pacifico", cursive;
+
+    span {
+      margin-right: 20px;
+    }
+    
   }
 }
 
