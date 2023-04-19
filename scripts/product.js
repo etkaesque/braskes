@@ -48,12 +48,12 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
         .then((data) => {
           success.innerHTML = `
           
-          <div class="success">
+         
           <h3>Skelbimas sėkmingai ištrintas!</h3>
           <div>
             <a href="index.html" class="goback">Grįžti į katalogą</a>
           </div>
-        </div>
+     
           
           `;
         });

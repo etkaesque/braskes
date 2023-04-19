@@ -36,6 +36,8 @@ header .logo {
   font-family: "Pacifico", cursive;
   font-size: 1.5rem;
   position: relative;
+  display: flex;
+  align-items: baseline;
 }
 @media (max-width: 576px) {
   header .logo {
@@ -169,7 +171,7 @@ main .search .search-container .seach-item div select {
   padding-left: 5px;
   padding-right: 5px;
 }
-main .search .search-container .seach-item div button {
+main .search .search-container .seach-item div s button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -179,10 +181,10 @@ main .search .search-container .seach-item div button {
   padding: 10px;
   transition: box-shadow 0.5s;
 }
-main .search .search-container .seach-item div button:hover {
+main .search .search-container .seach-item div s button:hover {
   box-shadow: 2px 2px 15px #5db67d;
 }
-main .search .search-container .seach-item div button svg {
+main .search .search-container .seach-item div s button svg {
   width: 25px;
   height: 25px;
 }
