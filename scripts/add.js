@@ -38,7 +38,7 @@ form.addEventListener("submit", (event) => {
       return res.json();
     })
     .then((data) => {
-      success.style.display = `block`;
+      success.style.display = `flex`;
 
       buttonContinue.addEventListener("click", () => {
         success.style.display = `none`;

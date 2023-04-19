@@ -203,8 +203,8 @@
         <nav>
           <ul>
             <li><a href="">EN</a></li>
+            <li><a href="index.html">Katalogas</a></li>
             <li><a href="">Prisijungti</a></li>
-            <li><a href="">Registruotis</a></li>
           </ul>
         </nav>
       </header>
@@ -232,21 +232,21 @@
             </div>
 
             <form class="seach-item">
-              <input
+              <input name="search"
                 type="text"
                 placeholder="Įveskite paieškos žodį ar frazę"
               />
 
               <div>
                 <select name="cities" id="cities">
-                  <option value="">Visi Miestai</option>
-                  <option value="">Vilnius</option>
-                  <option value="">Kaunas</option>
-                  <option value="">Klaipėda</option>
-                  <option value="">Šiauliai</option>
-                  <option value="">Panevėžys</option>
+                  <option value="All">Visi Miestai</option>
+                  <option value="Vilnius">Vilnius</option>
+                  <option value="Kaunas">Kaunas</option>
+                  <option value="Klaipėda">Klaipėda</option>
+                  <option value="Šiauliai">Šiauliai</option>
+                  <option value="Panevėžys">Panevėžys</option>
                 </select>
-                <button>
+                <button type="submit" name="submit">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink"

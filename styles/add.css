@@ -12,6 +12,8 @@
   background-color: #eb166e;
   padding: 60px;
   border-radius: 10px 50px;
+  flex-direction: column;
+  row-gap: 20px;
 }
 .form-wrapper .success h3 {
   color: white;
@@ -79,6 +81,10 @@
   height: 35px;
   padding-left: 5px;
   padding-right: 5px;
+}
+.form-wrapper form div textarea {
+  text-align: center;
+  width: 100%;
 }
 .form-wrapper form div textarea:focus, .form-wrapper form div select:focus, .form-wrapper form div input:focus {
   outline-color: #eb166e;

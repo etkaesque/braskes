@@ -1,6 +1,19 @@
 const id = localStorage.getItem("id");
 const container = document.querySelector(".product-information");
 const success = document.querySelector(`.success`);
+const searchItemForm = document.querySelector(".seach-item");
+
+searchItemForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const searchText = event.target.search.value;
+  const searchCity = event.target.cities.value;
+
+  localStorage.setItem("searchText", searchText);
+  localStorage.setItem("searchCity", searchCity);
+
+  window.location.href = `index.html`;
+});
 
 fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
   .then((res) => {
@@ -15,7 +28,7 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
     const continueNo = document.querySelector(`.continueNo`);
 
     deleteButton.addEventListener("click", () => {
-      success.style.display = `block`;
+      success.style.display = `flex`;
     });
 
     continueNo.addEventListener("click", () => {
@@ -23,24 +36,27 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries/" + id)
     });
 
     continueYes.addEventListener("click", () => {
-      fetch(`https://643d8cc16c30feced815307f.mockapi.io/strawberries/`+`${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://643d8cc16c30feced815307f.mockapi.io/strawberries/` + `${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => {
           return res.json();
         })
         .then((data) => {
-
-
-          window.location.href = `index.html`
-
-
-        }
-        
-        
-        
-        )
- 
+          success.innerHTML = `
+          
+          <div class="success">
+          <h3>Skelbimas sėkmingai ištrintas!</h3>
+          <div>
+            <a href="index.html" class="goback">Grįžti į katalogą</a>
+          </div>
+        </div>
+          
+          `;
+        });
     });
   });
 

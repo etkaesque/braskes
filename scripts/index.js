@@ -1,5 +1,6 @@
+const searchItemForm = document.querySelector(".seach-item");
 const content = document.querySelector(".content");
-
+const message = document.querySelector(".message");
 const filterElement = document.querySelector("#filter");
 
 function applyFilter(data) {
@@ -19,6 +20,55 @@ function applyFilter(data) {
   init(sortedData);
 }
 
+
+
+searchItemForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      message.textContent = "";
+      const searchText = event.target.search.value;
+      const searchCity = event.target.cities.value;
+      console.log("searches for item:" + searchText);
+      console.log("searches for city:" + searchCity);
+
+      let searchedArray = [];
+
+      if (searchCity === "All") {
+        data.forEach((obj) => {
+          if (obj.name.includes(searchText)) {
+            searchedArray.push(obj);
+          }
+        });
+      } else {
+        data.forEach((obj) => {
+          if (
+            obj.name.includes(searchText) &&
+            obj.location.includes(searchCity)
+          ) {
+            searchedArray.push(obj);
+          }
+        });
+      }
+
+      console.log("rasta tiek dalyku", searchedArray.length);
+
+      if (searchedArray.length === 0) {
+        message.textContent = "Pagal pateiktą užklausą rezultatų neradome.";
+      }
+
+      applyFilter(searchedArray);
+
+      filterElement.addEventListener("change", () =>
+        applyFilter(searchedArray)
+      );
+    });
+});
+
 fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries")
   .then((res) => {
     return res.json();
@@ -30,6 +80,7 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries")
   });
 
 function init(array) {
+ 
   content.innerHTML = "";
   array.forEach((arrayObj) => {
     const timePassed = time(arrayObj.date);

@@ -5,6 +5,8 @@
 body {
   font-family: "Jost", sans-serif;
   margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .wrapper {
@@ -18,13 +20,35 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-
   margin-top: 50px;
+
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 50px;
+    align-items: flex-end;
+  }
+
+ 
+
+
+
+
 
   .logo {
     font-family: "Pacifico", cursive;
     font-size: 1.5rem;
     position: relative;
+
+    @media (max-width: 576px) {
+     
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
 
     svg {
       width: 70px;
@@ -35,7 +59,6 @@ header {
       text-decoration: none;
       color: #000000;
     }
-
   }
 
   ul {
@@ -43,6 +66,11 @@ header {
     padding-left: 0px;
     display: flex;
     column-gap: 20px;
+
+    @media (max-width: 576px) {
+      display: flex;
+      flex-direction: column;
+    }
 
     li {
       padding-right: 10px;
@@ -66,29 +94,40 @@ header {
 }
 
 main {
-
   min-height: 80vh;
 
   .search {
     .search-container {
       width: 100%;
       background-color: #eb166e;
-      height: 70px;
+      height: auto;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 20px;
       column-gap: 10px;
       border-radius: 5px 5px 20px 20px;
+
+      @media (max-width: 992px) {
+        width: 100%;
+        background-color: #eb166e;
+        height: auto;
+        display: flex;
+        row-gap: 30px;
+        padding: 20px;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+        border-radius: 5px 5px 20px 20px;
+        flex-direction: column;
+        align-items: center;
+      }
 
       .add_item {
         display: flex;
         width: 200px;
         height: 35px;
-        border: 1px solid #000000;
         background: white;
-
+        border-radius: 5px 10px;
         border: none;
 
         a {
@@ -102,6 +141,7 @@ main {
           color: #000000;
           padding: 5px;
           transition: box-shadow 0.5s;
+          border-radius: 5px 10px;
 
           span {
             color: #5db67d;
@@ -154,6 +194,13 @@ main {
             justify-content: center;
             align-items: center;
             padding: 10px;
+            transition: box-shadow 0.5s;
+
+            &:hover {
+
+              box-shadow: 2px 2px 15px #5db67d;
+
+            }
 
             svg {
               width: 25px;
@@ -201,13 +248,37 @@ main {
 
     .card {
       display: grid;
-      grid-template-columns: 10% 20% 1fr;
+      grid-template-columns: 10% auto 1fr;
       border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
       padding-bottom: 10px;
 
+      @media (max-width: 992px) {
+        grid-template-columns: auto 60%;
+        grid-template-rows: 1fr 15%;
+      }
+
+      @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 10% 1fr 1fr;
+      }
+
       .card-image {
-        width: auto;
+        width: 200px;
         height: 200px;
+
+        @media (max-width: 992px) {
+          width: auto;
+          min-width: 200px;
+          max-height: 200px;
+          grid-row: 1/2;
+        }
+
+        @media (max-width: 576px) {
+          width: 100%;
+          height: auto;
+          max-height: 200px;
+          grid-row: 2/3;
+        }
 
         a {
           width: 100%;
@@ -224,6 +295,14 @@ main {
       .card-info {
         padding: 10px;
 
+        @media (max-width: 992px) {
+          grid-row: 1/2;
+        }
+
+        @media (max-width: 576px) {
+          grid-row: 3/4;
+        }
+
         .price {
           font-weight: 500;
         }
@@ -232,12 +311,11 @@ main {
           text-decoration: none;
           color: #000000;
 
-          h3{
+          h3 {
             margin-top: 5px;
             margin-bottom: 0px;
             font-size: 1.4rem;
           }
-
         }
       }
 
@@ -248,20 +326,26 @@ main {
         flex-direction: column;
         align-items: end;
 
+        @media (max-width: 992px) {
+          padding: 10px;
+          display: flex;
+          column-gap: 10px;
+          flex-wrap: wrap;
+          align-items: flex-end;
+          flex-direction: row;
+        }
 
         .time {
           font-style: italic;
           text-align: end;
           font-size: 0.8rem;
         }
-
       }
     }
   }
 }
 
 footer {
-
   border-top: 10px dotted #eb166e;
   display: grid;
   grid-template-rows: 1f 1fr;
@@ -270,18 +354,17 @@ footer {
   margin-top: 50px;
   align-items: baseline;
 
-  .company-information{
-
+  .company-information {
     display: flex;
     flex-direction: column;
 
     h2 {
       margin-bottom: 0px;
+      font-size: 1.2em;
     }
-
   }
 
-  .footer-nav{
+  .footer-nav {
     display: flex;
     justify-content: flex-end;
 
@@ -290,30 +373,33 @@ footer {
       list-style-type: none;
       column-gap: 20px;
 
+      @media (max-width: 992px){
+
+        flex-direction: column;
+    
+      }
+    
+    
+
+
+
       li a {
         text-decoration: none;
         color: #000000;
-  
+
         &:hover {
           color: #eb166e;
         }
       }
-
-
     }
-
   }
-  
+
   aside {
-    
     grid-column: 1/3;
     justify-self: end;
     font-family: "Pacifico", cursive;
   }
-
-
 }
-
 
 h1,
 h2,

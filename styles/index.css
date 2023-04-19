@@ -5,6 +5,8 @@
 body {
   font-family: "Jost", sans-serif;
   margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .wrapper {
@@ -20,10 +22,28 @@ header {
   align-items: baseline;
   margin-top: 50px;
 }
+@media (max-width: 576px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-top: 50px;
+    align-items: flex-end;
+  }
+}
 header .logo {
   font-family: "Pacifico", cursive;
   font-size: 1.5rem;
   position: relative;
+}
+@media (max-width: 576px) {
+  header .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
 header .logo svg {
   width: 70px;
@@ -39,6 +59,12 @@ header ul {
   display: flex;
   -moz-column-gap: 20px;
        column-gap: 20px;
+}
+@media (max-width: 576px) {
+  header ul {
+    display: flex;
+    flex-direction: column;
+  }
 }
 header ul li {
   padding-right: 10px;
@@ -62,22 +88,36 @@ main {
 main .search .search-container {
   width: 100%;
   background-color: #eb166e;
-  height: 70px;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   -moz-column-gap: 10px;
        column-gap: 10px;
   border-radius: 5px 5px 20px 20px;
+}
+@media (max-width: 992px) {
+  main .search .search-container {
+    width: 100%;
+    background-color: #eb166e;
+    height: auto;
+    display: flex;
+    row-gap: 30px;
+    padding: 20px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+    border-radius: 5px 5px 20px 20px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 main .search .search-container .add_item {
   display: flex;
   width: 200px;
   height: 35px;
-  border: 1px solid #000000;
   background: white;
+  border-radius: 5px 10px;
   border: none;
 }
 main .search .search-container .add_item a {
@@ -91,6 +131,7 @@ main .search .search-container .add_item a {
   color: #000000;
   padding: 5px;
   transition: box-shadow 0.5s;
+  border-radius: 5px 10px;
 }
 main .search .search-container .add_item a span {
   color: #5db67d;
@@ -136,6 +177,10 @@ main .search .search-container .seach-item div button {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  transition: box-shadow 0.5s;
+}
+main .search .search-container .seach-item div button:hover {
+  box-shadow: 2px 2px 15px #5db67d;
 }
 main .search .search-container .seach-item div button svg {
   width: 25px;
@@ -173,13 +218,41 @@ main .content {
 }
 main .content .card {
   display: grid;
-  grid-template-columns: 10% 20% 1fr;
+  grid-template-columns: 10% auto 1fr;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
 }
+@media (max-width: 992px) {
+  main .content .card {
+    grid-template-columns: auto 60%;
+    grid-template-rows: 1fr 15%;
+  }
+}
+@media (max-width: 576px) {
+  main .content .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 1fr 1fr;
+  }
+}
 main .content .card .card-image {
-  width: auto;
+  width: 200px;
   height: 200px;
+}
+@media (max-width: 992px) {
+  main .content .card .card-image {
+    width: auto;
+    min-width: 200px;
+    max-height: 200px;
+    grid-row: 1/2;
+  }
+}
+@media (max-width: 576px) {
+  main .content .card .card-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    grid-row: 2/3;
+  }
 }
 main .content .card .card-image a {
   width: 100%;
@@ -193,6 +266,16 @@ main .content .card .card-image a img {
 }
 main .content .card .card-info {
   padding: 10px;
+}
+@media (max-width: 992px) {
+  main .content .card .card-info {
+    grid-row: 1/2;
+  }
+}
+@media (max-width: 576px) {
+  main .content .card .card-info {
+    grid-row: 3/4;
+  }
 }
 main .content .card .card-info .price {
   font-weight: 500;
@@ -212,6 +295,17 @@ main .content .card .card-info-aside {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: end;
+}
+@media (max-width: 992px) {
+  main .content .card .card-info-aside {
+    padding: 10px;
+    display: flex;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    flex-direction: row;
+  }
 }
 main .content .card .card-info-aside .time {
   font-style: italic;
@@ -234,6 +328,7 @@ footer .company-information {
 }
 footer .company-information h2 {
   margin-bottom: 0px;
+  font-size: 1.2em;
 }
 footer .footer-nav {
   display: flex;
@@ -244,6 +339,11 @@ footer .footer-nav ul {
   list-style-type: none;
   -moz-column-gap: 20px;
        column-gap: 20px;
+}
+@media (max-width: 992px) {
+  footer .footer-nav ul {
+    flex-direction: column;
+  }
 }
 footer .footer-nav ul li a {
   text-decoration: none;
