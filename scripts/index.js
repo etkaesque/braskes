@@ -57,6 +57,8 @@ searchItemForm.addEventListener("submit", (event) => {
     .then((data) => {
       const searchText = event.target.search.value;
       const searchCity = event.target.cities.value;
+      console.log("search text is:", !!searchText)
+      console.log("searchCity  is:", searchCity)
 
       search(data, searchText, searchCity);
     });
@@ -74,7 +76,7 @@ fetch("https://643d8cc16c30feced815307f.mockapi.io/strawberries")
 
    
 
-    if (searchText && searchCity) {
+    if (searchText || searchCity) {
       search(data, searchText, searchCity);
 
     
